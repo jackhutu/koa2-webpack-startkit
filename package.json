@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --sequential build start-prod",
-    "start-prod": "cross-env NODE_ENV=production nodemon server/app.js",
+    "start-prod": "cross-env NODE_ENV=production nodemon ./bin/www",
     "dev": "npm-run-all --sequential clean start-dev",
-    "start-dev": "cross-env NODE_ENV=development nodemon index.js",
-    "build": "npm-run-all clean --parallel compile webpack-client",
-    "compile": "babel server-src/ --out-dir server/ --retain-lines --source-maps",
-    "webpack-client": "cross-env NODE_ENV=production webpack --colors --config ./webpack.config.js",
+    "start-dev": "cross-env NODE_ENV=development nodemon ./bin/dev",
+    "build": "npm-run-all clean --parallel compile-server compile-client",
+    "compile-server": "babel server-src/ --out-dir server/ --retain-lines --source-maps",
+    "compile-client": "cross-env NODE_ENV=production webpack --colors --config ./webpack.config.js",
     "clean": "rimraf client && rimraf server"
   },
   "keywords": [
@@ -61,7 +61,7 @@
     "file-loader": "^0.9.0",
     "glob": "^7.0.5",
     "image-webpack-loader": "^2.0.0",
-    "jade-inject-webpack-plugin": "^1.0.0",
+    "jade-inject-webpack-plugin": "^1.0.1",
     "koa-webpack-dev-middleware": "^1.2.1",
     "koa-webpack-hot-middleware": "^1.0.3",
     "nodemon": "^1.10.0",

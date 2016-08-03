@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+require("babel-core/register")
+var convert = require('koa-convert')
+var app = require('../server-src/app')
+var port = process.env.PORT || '3000'
+
+// webpack config
+const webpack = require('webpack')
+const devConfig = require('../webpack.config')
+const compiler = webpack(devConfig)
+const webpackDevMiddleware = require("koa-webpack-dev-middleware")
+const webpackHotMiddleware = require("koa-webpack-hot-middleware")
+app.use(convert(webpackDevMiddleware(compiler, {
+  noInfo: false,
+  publicPath: devConfig.output.publicPath,
+  stats: {
+  colors: true
+  }
+})))
+app.use(convert(webpackHotMiddleware(compiler)))
+
+app.listen(port, () => console.info("==> 🌎 Koa2 server listening on port %s, in %s mode", port, app.env))

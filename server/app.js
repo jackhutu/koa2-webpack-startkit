@@ -1,4 +1,6 @@
-'use strict';exports.__esModule = true;var _regenerator = require('babel-runtime/regenerator');var _regenerator2 = _interopRequireDefault(_regenerator);var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);var _path = require('path');var _path2 = _interopRequireDefault(_path);
+'use strict';exports.__esModule = true;var _regenerator = require('babel-runtime/regenerator');var _regenerator2 = _interopRequireDefault(_regenerator);var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
+var _path = require('path');var _path2 = _interopRequireDefault(_path);
 var _koa = require('koa');var _koa2 = _interopRequireDefault(_koa);
 var _koaRouter = require('koa-router');var _koaRouter2 = _interopRequireDefault(_koaRouter);
 var _koaBodyparser = require('koa-bodyparser');var _koaBodyparser2 = _interopRequireDefault(_koaBodyparser);
@@ -8,7 +10,7 @@ var _koaConvert = require('koa-convert');var _koaConvert2 = _interopRequireDefau
 var _koaJson = require('koa-json');var _koaJson2 = _interopRequireDefault(_koaJson);
 var _koaLogger = require('koa-logger');var _koaLogger2 = _interopRequireDefault(_koaLogger);
 var _index = require('./routes/index');var _index2 = _interopRequireDefault(_index);
-var _about = require('./routes/about');var _about2 = _interopRequireDefault(_about);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _about = require('./routes/about');var _about2 = _interopRequireDefault(_about);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var app = new _koa2.default();
 var router = new _koaRouter2.default();
@@ -25,24 +27,6 @@ app.use((0, _koaStatic2.default)(_path2.default.join(__dirname, '../client')));
 app.use((0, _koaViews2.default)(_path2.default.join(__dirname, '../views'), {
   extension: 'jade' }));
 
-
-// webpack config
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-if (app.env === 'development') {
-  var webpack = require('webpack');
-  var devConfig = require('../webpack.config.dev');
-  var compiler = webpack(devConfig);
-  var webpackDevMiddleware = require("koa-webpack-dev-middleware");
-  var webpackHotMiddleware = require("koa-webpack-hot-middleware");
-  app.use((0, _koaConvert2.default)(webpackDevMiddleware(compiler, {
-    noInfo: false,
-    publicPath: devConfig.output.publicPath,
-    stats: {
-      colors: true } })));
-
-
-  app.use((0, _koaConvert2.default)(webpackHotMiddleware(compiler)));
-}
 
 // response
 app.use(function () {var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(ctx, next) {return _regenerator2.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.prev = 0;_context.next = 3;return (
@@ -68,9 +52,7 @@ app.use(router.routes());
 app.on('error', function (err, ctx) {
   console.log(err);
   _koaLogger2.default.error('server error', err, ctx);
-});
-
-app.listen(3000, function () {return console.log('server started 3000');});exports.default =
+});exports.default =
 
 app;module.exports = exports['default'];
 //# sourceMappingURL=app.js.map

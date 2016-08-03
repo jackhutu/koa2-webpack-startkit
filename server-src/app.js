@@ -1,3 +1,5 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
 import path from 'path'
 import Koa from 'koa'
 import Router from 'koa-router'
@@ -26,24 +28,6 @@ app.use(views(path.join(__dirname, '../views'), {
   extension: 'jade'
 }))
 
-// webpack config
-process.env.NODE_ENV = process.env.NODE_ENV || 'development'
-if(app.env === 'development'){
-  const webpack = require('webpack')
-  let devConfig = require('../webpack.config.dev')
-  const compiler = webpack(devConfig)
-  const webpackDevMiddleware = require("koa-webpack-dev-middleware")
-  const webpackHotMiddleware = require("koa-webpack-hot-middleware")
-  app.use(convert(webpackDevMiddleware(compiler, {
-      noInfo: false,
-      publicPath: devConfig.output.publicPath,
-      stats: {
-        colors: true
-      }
-  })))
-  app.use(convert(webpackHotMiddleware(compiler)))
-}
-
 // response
 app.use(async (ctx, next) => {
   try {
@@ -69,7 +53,5 @@ app.on('error', function(err, ctx){
   console.log(err)
   logger.error('server error', err, ctx)    
 })
-
-app.listen(3000, () => console.log('server started 3000'))
 
 export default app
