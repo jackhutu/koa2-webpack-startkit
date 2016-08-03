@@ -2,6 +2,8 @@ doctype html
 html
   head
     title= title
-    //link(rel='stylesheet', href='/stylesheets/style.css')
+    block styles
+      link(rel='stylesheet', href='styles/index.css')
   body
     block content
+    block scripts

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///webpack:///client-src/styles/about.css"],"names":[],"mappings":"AAAA,EACE,SAAW,CAEb,EACE,aAAe","file":"styles/d327902e.about.css","sourcesContent":["a {\n  color: red;\n}\np{\n  color: #00B7FF;\n}\n\n\n/** WEBPACK FOOTER **\n ** webpack:///client-src/styles/about.css\n **/"],"sourceRoot":""}

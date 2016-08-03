@@ -4,9 +4,19 @@
   "description": "ko2 webpack startkit",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all --sequential build start-prod",
+    "start-prod": "cross-env NODE_ENV=production nodemon server/app.js",
+    "dev": "npm-run-all --sequential clean start-dev",
+    "start-dev": "cross-env NODE_ENV=development nodemon index.js",
+    "build": "npm-run-all clean --parallel compile webpack-client",
+    "compile": "babel server-src/ --out-dir server/ --retain-lines --source-maps",
+    "webpack-client": "cross-env NODE_ENV=production webpack --colors --config ./webpack.config.js",
+    "clean": "rimraf client && rimraf server"
   },
-  "keywords": [],
+  "keywords": [
+    "koa2",
+    "webpack"
+  ],
   "author": "Jack Hu",
   "repository": {
     "type": "git",
@@ -14,27 +24,49 @@
   },
   "license": "MIT",
   "dependencies": {
+    "cross-env": "^2.0.0",
     "jade": "^1.11.0",
+    "jquery": "^3.1.0",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
+    "koa-convert": "^1.2.0",
     "koa-json": "^2.0.2",
     "koa-jwt": "^2.0.1",
     "koa-logger": "^2.0.0",
     "koa-multer": "^1.0.0",
     "koa-router": "^7.0.1",
     "koa-static": "^3.0.0",
-    "koa-views": "^5.0.2"
+    "koa-views": "^5.0.2",
+    "npm-run-all": "^2.3.0",
+    "rimraf": "^2.5.4"
   },
   "devDependencies": {
+    "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
+    "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-runtime": "^6.12.0",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-3": "^6.11.0",
     "babel-runtime": "^6.11.6",
+    "css-loader": "^0.23.1",
+    "eslint": "^3.2.2",
+    "eslint-loader": "^1.5.0",
+    "eventsource-polyfill": "^0.9.6",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "glob": "^7.0.5",
+    "image-webpack-loader": "^2.0.0",
+    "jade-inject-webpack-plugin": "^1.0.0",
+    "koa-webpack-dev-middleware": "^1.2.1",
+    "koa-webpack-hot-middleware": "^1.0.3",
+    "nodemon": "^1.10.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.1"
   }
 }

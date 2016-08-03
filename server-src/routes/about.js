@@ -3,12 +3,10 @@ const router = new Router()
 
 router.get('/', async function (ctx, next) {
   ctx.state = {
-    title: 'koa2 title'
+    title: 'koa2 about'
   }
 
-  await ctx.render('index', {
-    user: 'John'
-  })
+  await ctx.render('about')
 })
 
 module.exports = router

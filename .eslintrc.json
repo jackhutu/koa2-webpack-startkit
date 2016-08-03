@@ -1,0 +1,41 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "globals": {
+    "$": true,
+    "_hmt": true
+  },
+  "ecmaFeatures": {
+    "arrowFunctions": true
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2,
+      {"SwitchCase": 1}
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-console": 0,
+    "no-unused-vars": 0,
+    "no-mixed-spaces-and-tabs": [0, "smart-tabs"],
+    "no-unexpected-multiline": 0,
+    "func-style": [2, "declaration", { "allowArrowFunctions": true }]
+  }
+}
