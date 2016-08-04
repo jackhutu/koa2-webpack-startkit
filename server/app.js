@@ -6,7 +6,6 @@ var _koaRouter = require('koa-router');var _koaRouter2 = _interopRequireDefault(
 var _koaBodyparser = require('koa-bodyparser');var _koaBodyparser2 = _interopRequireDefault(_koaBodyparser);
 var _koaViews = require('koa-views');var _koaViews2 = _interopRequireDefault(_koaViews);
 var _koaStatic = require('koa-static');var _koaStatic2 = _interopRequireDefault(_koaStatic);
-var _koaConvert = require('koa-convert');var _koaConvert2 = _interopRequireDefault(_koaConvert);
 var _koaJson = require('koa-json');var _koaJson2 = _interopRequireDefault(_koaJson);
 var _koaLogger = require('koa-logger');var _koaLogger2 = _interopRequireDefault(_koaLogger);
 var _index = require('./routes/index');var _index2 = _interopRequireDefault(_index);

@@ -3,7 +3,7 @@ const router = new Router()
 
 router.get('/', async function (ctx, next) {
   ctx.state = {
-    title: 'koa2 about'
+    title: '我们是共产主义接班人'
   }
 
   await ctx.render('about')

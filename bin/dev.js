@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 require("babel-core/register")
-var convert = require('koa-convert')
-var app = require('../server-src/app')
-var port = process.env.PORT || '3000'
+const convert = require('koa-convert')
+const app = require('../server-src/app')
+const port = process.env.PORT || '3000'
 
 // webpack config
 const webpack = require('webpack')
@@ -15,7 +15,7 @@ app.use(convert(webpackDevMiddleware(compiler, {
   noInfo: false,
   publicPath: devConfig.output.publicPath,
   stats: {
-  colors: true
+    colors: true
   }
 })))
 app.use(convert(webpackHotMiddleware(compiler)))

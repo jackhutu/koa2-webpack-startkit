@@ -2,16 +2,17 @@ extends layout
 
 block styles
   //css inject
-  link(rel="stylesheet", href="styles/d327902e.index.css")
+  link(rel="stylesheet", href="styles/54fb8fc9.index.css")
   //end inject
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a(href="/about") 关于我
+  h1 #{title}说过,#{user}是早上八九点钟的太阳
+  img(src="images/sun.jpg", alt="早上八九点钟的太阳")
+  p
+    a(href="/about") 关于我
 
 block scripts
   //js inject
-  script(type="text/javascript" src="js/d327902e.commons.js")
-  script(type="text/javascript" src="js/d327902e.index.js")
+  script(type="text/javascript" src="js/54fb8fc9.commons.js")
+  script(type="text/javascript" src="js/54fb8fc9.index.js")
   //end inject

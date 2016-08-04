@@ -3,11 +3,11 @@ const router = new Router()
 
 router.get('/', async function (ctx, next) {
   ctx.state = {
-    title: 'koa2 title'
+    title: '毛主席'
   }
 
   await ctx.render('index', {
-    user: 'John'
+    user: '80后'
   })
 })
 

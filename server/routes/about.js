@@ -3,7 +3,7 @@ var router = new _koaRouter2.default();
 
 router.get('/', function () {var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(ctx, next) {return _regenerator2.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
             ctx.state = {
-              title: 'koa2 about' };_context.next = 3;return (
+              title: '我们是共产主义接班人' };_context.next = 3;return (
 
 
               ctx.render('about'));case 3:case 'end':return _context.stop();}}}, _callee, this);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());

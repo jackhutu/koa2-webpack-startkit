@@ -1,6 +1,13 @@
+@import "base.css";
+
 a {
   color: red;
 }
 p{
   color: #00B7FF;
+}
+.hongqi{
+  width:170px;
+  height: 130px;
+  background: url('../images/80hou.jpg');
 }

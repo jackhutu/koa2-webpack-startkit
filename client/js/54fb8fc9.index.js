@@ -1,0 +1,2 @@
+webpackJsonp([2],[function(o,n,t){o.exports=t(5)},,,,,function(o,n,t){(function(n){"use strict";t(7),t(8);t(1);t.e(0,function(o){var n=[o(2)];(function(o){o("This is page A")}).apply(null,n)}),n(document).ready(function(){document.body.style.borderStyle="solid",document.body.style.borderWidth="2px",document.body.style.borderColor="#F40002"}),o.hot.accept()}).call(n,t(3))},,function(o,n){},function(o,n,t){o.exports=t.p+"images/sun.jpg"}]);
+//# sourceMappingURL=54fb8fc9.index.js.map

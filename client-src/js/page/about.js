@@ -6,6 +6,11 @@ require.ensure(['../common/shared'], function(require) {
   shared('This is page B')
 })
 
+$(document).ready(function () {
+  document.body.style.borderStyle = 'solid'
+  document.body.style.borderWidth = '2px'
+  document.body.style.borderColor = '#FAF408'
+})
 
 if(module.hot) {
   module.hot.accept()

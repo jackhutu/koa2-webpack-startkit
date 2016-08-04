@@ -1,17 +1,16 @@
 import '../../styles/index.css'
+import '../../images/sun.jpg'
 
 var common = require('../common')
 require(['../common/shared'], function(shared) {
-  shared('This is page A...')
+  shared('This is page A')
 })
 
 $(document).ready(function () {
-  document.body.style.backgroundColor = '#00ffff'
+  document.body.style.borderStyle = 'solid'
+  document.body.style.borderWidth = '2px'
+  document.body.style.borderColor = '#F40002'
 })
-var d = document.createElement('p')
-var t = document.createTextNode('我是中国人.')
-d.appendChild(t)
-document.body.appendChild(d)
 
 if(module.hot) {
   module.hot.accept()
