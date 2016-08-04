@@ -1,1 +1,1 @@
-## webpack2 ko2 样例
+## ko2 webpack 样例
