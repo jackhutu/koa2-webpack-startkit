@@ -6,10 +6,7 @@ npm-debug.log*
 *.pid
 .tmp
 .sass-cache
-uploads
 
 ###############
 .DS_Store
 node_modules
-test_coverage
-private
