@@ -1,6 +1,6 @@
 {
   "name": "koa2-webpack-startkit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "ko2 webpack startkit",
   "main": "server/app.js",
   "scripts": {
