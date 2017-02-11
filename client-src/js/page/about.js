@@ -9,7 +9,7 @@ require.ensure(['../common/shared'], function(require) {
 $(document).ready(function () {
   document.body.style.borderStyle = 'solid'
   document.body.style.borderWidth = '2px'
-  document.body.style.borderColor = '#FAF408'
+  document.body.style.borderColor = 'blue'
 })
 
 if(module.hot) {

@@ -11,7 +11,7 @@
     "build": "npm-run-all clean --parallel compile-server compile-client",
     "compile-server": "babel server-src/ --out-dir server/ --retain-lines --source-maps",
     "compile-client": "cross-env NODE_ENV=production webpack --colors --config ./webpack.config.js",
-    "clean": "rimraf client && rimraf server"
+    "clean": "rimraf client/* && rimraf server/* && rimraf views/*"
   },
   "keywords": [
     "koa2",

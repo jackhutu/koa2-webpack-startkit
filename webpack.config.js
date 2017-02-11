@@ -53,22 +53,7 @@ var config = {
       name: 'commons',
       chunks: ["index", "about"]
     }),
-    new ExtractTextPlugin('styles/[hash:8].[name].css', { allChunks: true }),
-    new JadeInjectPlugin({
-      indent:['spaces',2], //默认空格2, 其它选项: ['tab',1]
-      entry:{
-        './views/entry/index.jade':{
-          'js':['commons.js','index.js'],
-          'css':['index.css'],
-          'output':'./views' //默认同Key
-        },
-        './views/entry/about.jade':{
-          'js':['commons.js','about.js'],
-          'css':['about.css'],
-          'output':'./views'
-        }
-      }
-    })
+    new ExtractTextPlugin('styles/[hash:8].[name].css', { allChunks: true })
   ],
   module: {
     preLoaders: [
@@ -105,4 +90,24 @@ if(!debug){
     compress: { warnings: false }
   }))
 }
+
+/*JadeInjectPlugin 配置*/
+glob.sync('./client-src/views/**/*.jade').forEach(function (name) {
+  const filename = path.basename(name,'.jade')
+  const basepath = name.replace('./client-src/views/','')
+  let conf = {
+    indent:['spaces',2], //默认空格2, 其它选项: ['tab',1]
+    filePath: name,
+    output: path.join(__dirname, name.replace('./client-src/views/','./views/')),
+    inject: false
+  }
+  //是否要注入及注入文件列表
+  if(config.entry[filename]){
+    conf.inject = true;
+    conf.injectJs = ['commons.js',filename]
+    conf.injectCss = [filename]
+  }
+  config.plugins.push(new JadeInjectPlugin(conf));
+})
+
 module.exports = config
